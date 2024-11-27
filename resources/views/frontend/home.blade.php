@@ -1,0 +1,3 @@
+  
+  
+  @extend('frontend.master')
