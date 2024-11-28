@@ -30,6 +30,11 @@
             <h2 class="text-3xl font-bold mb-4">Dashboard</h2>
 
             <!-- Upcoming Elections Section -->
+            @php
+                // Ensure $elections is set, or default to an empty collection
+                $elections = $elections ?? collect();
+            @endphp
+
             <div class="mb-6">
                 <h3 class="text-2xl font-semibold">Upcoming Elections</h3>
                 <!-- Display upcoming elections here -->

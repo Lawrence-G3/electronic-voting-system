@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up()
 {
-    Schema::create('candidates', function (Blueprint $table) {
+    Schema::create('elections', function (Blueprint $table) {
         $table->id();
         $table->string('name');
-        $table->string('party');
-        $table->text('bio');
-        $table->enum('status', ['active', 'inactive']);
-        $table->foreignId('election_id')->constrained(); // Foreign key to election
+        $table->string('description');
+        $table->enum('status', ['upcoming', 'completed']);
         $table->timestamps();
     });
 }
-
 
 
     /**
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('candidates');
+        Schema::dropIfExists('elections');
     }
 };

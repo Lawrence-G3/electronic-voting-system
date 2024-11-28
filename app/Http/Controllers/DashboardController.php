@@ -16,5 +16,15 @@ class DashboardController extends Controller
     return view('dashboard', compact('totalVotes', 'elections'));
 }
 
+public function dashboard()
+{
+    // Fetch upcoming elections (date is greater than or equal to the current date)
+    $elections = Election::where('date', '>=', now())->get();
+
+    // Pass the $elections variable to the 'dashboard.index' view
+    return view('dashboard.index', compact('elections'));
+}
+
+
 }
 
